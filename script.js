@@ -11,6 +11,7 @@ $(".saveButton").on("click", function () {
 });
 
 // retrieves data from local storage
+//// i + 8 allows us to begin at 8am and allows for quick conversion to military time.
 for (i = 0; i < 10; i++) {
   $(".container")
     .children()
@@ -18,5 +19,12 @@ for (i = 0; i < 10; i++) {
     .children()
     .eq(1)
     .val(localStorage.getItem(i + 8));
-
+    if (currentHour < i + 8) {
+      $(".container").children().eq(i).children().eq(1).addClass("future");
+    } else if (currentHour == i + 8)
+      $(".container").children().eq(i).children().eq(1).addClass("present");
+    else {
+      $(".container").children().eq(i).children().eq(1).addClass("past");
+    }
+  }
   

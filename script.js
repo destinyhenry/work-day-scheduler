@@ -10,4 +10,13 @@ $(".saveButton").on("click", function () {
   localStorage.setItem(time, text);
 });
 
+// retrieves data from local storage
+for (i = 0; i < 10; i++) {
+  $(".container")
+    .children()
+    .eq(i)
+    .children()
+    .eq(1)
+    .val(localStorage.getItem(i + 8));
+
   
